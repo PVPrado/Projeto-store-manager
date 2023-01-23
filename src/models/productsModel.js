@@ -19,7 +19,6 @@ const insert = async (name) => {
   return insertId;
 };
 
-
 module.exports = {
   getAll,
   getById,
