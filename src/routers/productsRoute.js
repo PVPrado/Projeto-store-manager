@@ -7,5 +7,6 @@ const productRoute = express.Router();
 productRoute.get('/', productsController.getAll);
 productRoute.get('/:id', productsController.getById);
 productRoute.post('/', validationProducts, productsController.insert);
+productRoute.put('/:id', productsController.update);
 
 module.exports = productRoute;

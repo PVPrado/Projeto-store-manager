@@ -21,8 +21,32 @@ const insert = async (product) => {
   return { type: null, message: result };
 };
 
+const checkProducts = async (id) => {
+  const product = await productsModel.getById(id);
+  return !!product;
+};
+
+const update = async (id, name) => {
+  const checked = await checkProducts(id);
+  if (!checked) {
+    return {
+      type: 'NOT_FOUND',
+      message: 'Product not found',
+    };
+  }
+  await productsModel.update(id, name);
+  return {
+    type: null,
+    message: {
+      id,
+      name,
+    },
+  };
+};
+
 module.exports = {
   getAll,
   getById,
   insert,
+  update,
 };
