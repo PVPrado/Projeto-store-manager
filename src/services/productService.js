@@ -44,9 +44,19 @@ const update = async (id, name) => {
   };
 };
 
+const deleteProd = async (productId) => {
+  const del = await productsModel.deleteProd(productId);
+  // affectedrows com ajuda do stackoverflow
+  if (del.affectedRows === 0) {
+    return { type: 404, message: 'Product not found' };
+  }
+  return { type: null, message: '' };
+};
+
 module.exports = {
   getAll,
   getById,
   insert,
   update,
+  deleteProd,
 };

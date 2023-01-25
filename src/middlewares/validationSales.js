@@ -22,7 +22,7 @@ const validationQuat = (req, res, next) => {
 
 const validationQuatNumber = (req, res, next) => {
   const { body } = req;
-  const validation = body.some((i) => i.quant <= 0);
+  const validation = body.some((i) => i.quantity <= 0);
 
   if (validation) {
     return res.status(422).json({ message: '"quantity" must be greater than or equal to 1' });
