@@ -1,7 +1,7 @@
 const salesModel = require('../models/salesModel');
 
 const insertSales = async (arrayProducts) => {
-  console.log(arrayProducts);
+  console.log('insertSales', arrayProducts);
   const sales = await salesModel.insertSales(arrayProducts);
 
   return { type: 201, message: sales };

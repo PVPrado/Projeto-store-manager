@@ -50,4 +50,21 @@ describe("Teste da camada model", () => {
 
     });
   });
+
+  it('Testa o insertProduct do product', async () => {
+    sinon.stub(connection, 'execute').resolves([{ insertId: 5 }])
+
+    const result = await productsModel.insert({ name: 'Joias do infinito' });
+
+    expect(result).to.be.deep.equal(5);
+  });
+
+
+  it('Testa o deleteProduct do product', async () => {
+    sinon.stub(connection, 'execute').resolves([{ affectedRows: 1 }])
+
+    const result = await productsModel.deleteProd(1)
+
+    expect(result).to.be.deep.equal({ affectedRows: 1 });
+  });
 });

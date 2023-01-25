@@ -9,10 +9,13 @@ const newSaleDate = async () => {
 
 const insertSales = async (arrayProducts) => {
   const insertId = await newSaleDate();
-  const q = 'INSERT INTO StoreManager.sales_products (sale_id, product_id, quant) VALUES (?, ?, ?)';
+  console.log(arrayProducts, insertId);
+  const q = `INSERT INTO 
+    StoreManager.sales_products (sale_id, product_id, quantity) VALUES (?, ?, ?)`;
   const insertProduct = await Promise.all(
     arrayProducts.map(async (i) => {
-      await connection.execute(q, [insertId, i.productId, i.quant]);
+      console.log(insertId, i.productId, i.quantity);
+      await connection.execute(q, [insertId, i.productId, i.quantity]);
       return i;
     }),
   );
