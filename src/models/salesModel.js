@@ -1,32 +1,32 @@
 const connection = require('./connection');
 
-const newSaleDate = async () => {
-  const [{ insertId }] = await connection.execute(
-    'INSERT INTO StoreManager.sales (date) VALUES(NOW())',
-  );
-  return insertId;
-};
+// const newSaleDate = async () => {
+//   const [{ insertId }] = await connection.execute(
+//     'INSERT INTO StoreManager.sales (date) VALUES(NOW())',
+//   );
+//   return insertId;
+// };
 
-const insertSales = async (arrayProducts) => {
-  const insertId = await newSaleDate();
-  console.log(arrayProducts, insertId);
-  const q = `INSERT INTO 
-    StoreManager.sales_products (sale_id, product_id, quantity) VALUES (?, ?, ?)`;
-  const insertProduct = await Promise.all(
-    arrayProducts.map(async (i) => {
-      console.log(insertId, i.productId, i.quantity);
-      await connection.execute(q, [insertId, i.productId, i.quantity]);
-      return i;
-    }),
-  );
+// const insertSales = async (arrayProducts) => {
+//   const insertId = await newSaleDate();
+//   console.log(arrayProducts, insertId);
+//   const q = `INSERT INTO 
+//     StoreManager.sales_products (sale_id, product_id, quantity) VALUES (?, ?, ?)`;
+//   const insertProduct = await Promise.all(
+//     arrayProducts.map(async (i) => {
+//       console.log(insertId, i.productId, i.quantity);
+//       await connection.execute(q, [insertId, i.productId, i.quantity]);
+//       return i;
+//     }),
+//   );
 
-  const products = {
-    id: insertId,
-    itemsSold: insertProduct,
-  };
+//   const products = {
+//     id: insertId,
+//     itemsSold: insertProduct,
+//   };
 
-  return products;
-};
+//   return products;
+// };
 
 const getAll = async () => {
   const [result] = await connection.execute(
@@ -51,7 +51,7 @@ const getById = async (id) => {
 };
 
 module.exports = {
-  insertSales,
+  // insertSales,
   getAll,
   getById,
 };

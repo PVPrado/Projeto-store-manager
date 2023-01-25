@@ -1,11 +1,11 @@
 const salesModel = require('../models/salesModel');
 
-const insertSales = async (arrayProducts) => {
-  console.log('insertSales', arrayProducts);
-  const sales = await salesModel.insertSales(arrayProducts);
+// const insertSales = async (arrayProducts) => {
+//   console.log('insertSales', arrayProducts);
+//   const sales = await salesModel.insertSales(arrayProducts);
 
-  return { type: 201, message: sales };
-};
+//   return { type: 201, message: sales };
+// };
 
 const getAll = async () => {
   const sales = await salesModel.getAll();
@@ -37,7 +37,7 @@ const getById = async (id) => {
 };
 
 module.exports = {
-  insertSales,
+  // insertSales,
   getAll,
   getById,
 };
