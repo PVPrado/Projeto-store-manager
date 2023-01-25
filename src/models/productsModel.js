@@ -19,7 +19,8 @@ const insert = async (name) => {
   return insertId;
 };
 
-const update = async (id, name) => {
+const update = async (id, body) => {
+  const { name } = body;
   const [result] = await connection.execute(
     'UPDATE StoreManager.products SET name = ? WHERE id = ?',
     [name, id],
