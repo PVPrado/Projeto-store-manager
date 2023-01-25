@@ -30,6 +30,7 @@ const insert = async (req, res) => {
 const update = async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
+  console.log(name);
   const { type, message } = await productsService.update(id, name);
   if (type !== null) {
     return res.status(404).json({ message });
