@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "05504db5-bbcc-4bae-b8db-492a152a523f",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost.com/sales",
+    "url": "http://localhost:3000/products/2",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-25T11:10:04.983Z",
+    "modified": "2023-01-25T22:22:56.262Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "1111111111111111"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Traje de encolhimento da vespa\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]
